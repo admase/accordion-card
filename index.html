@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="public/images/favicon-32x32.png" />
+
+    <title>FAQ Accordion Card</title>
+
+    <link rel="stylesheet" href="public/css/main.css" />
+</head>
+
+<body>
+    <div class="project-container">
+        <div class="row">
+            <div class="col thumb-wrapper">
+
+                <div class="layer" id="layer1">
+                    <img src="public/images/illustration-woman-online-desktop.svg" alt="Female Online" class="layer1a" />
+                    <img src="public/images/illustration-woman-online-mobile.svg" alt="Female Online" class="layer1b" />
+                </div>
+
+                <div class="layer" id="layer2">
+                    <img src="public/images/illustration-box-desktop.svg" alt="Illustration Box" class="layer2" />
+                </div>
+            </div>
+            <!--/ thumb-wrapper /-->
+
+            <div class="col accordion-wrapper">
+
+                <h1 class="title">FAQ</h1>
+                <div class="item">
+                    <div class="accordion-header">How many team members can I invite?
+                        <img src="public/images/icon-arrow-down.svg" alt="Arrow Icon" class="arrow rotate" />
+                    </div>
+                    <div class="accordion-content">
+                        You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="accordion-header">What is the maximum file upload size?
+                        <img src="public/images/icon-arrow-down.svg" alt="Arrow Icon" class="arrow rotate" />
+                    </div>
+                    <div class="accordion-content">
+                        No more than 2GB. All files in your account must fit your allotted storage space.
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="accordion-header">How do I reset my password?
+                        <img src="public/images/icon-arrow-down.svg" alt="Arrow Icon" class="arrow rotate" />
+                    </div>
+                    <div class="accordion-content">
+                        Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you.
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="accordion-header">Can I cancel my subscription?
+                        <img src="public/images/icon-arrow-down.svg" alt="Arrow Icon" class="arrow rotate" />
+                    </div>
+                    <div class="accordion-content">
+                        Yes! Send us a message and we’ll process your request no questions asked.
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="accordion-header">Do you provide additional support?
+                        <img src="public/images/icon-arrow-down.svg" alt="Arrow Icon" class="arrow rotate" />
+                    </div>
+                    <div class="accordion-content">
+                        Chat and email support is available 24/7. Phone lines are open during normal business hours.&nbsp;
+                    </div>
+                </div>
+
+            </div>
+            <!--/ accordion-wrapper /-->
+        </div>
+    </div>
+
+    <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by
+        <a href="https://github.com/admase/accordion-card.git">Danny A. Mase</a>.
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.accordion-header').click('hover', function() {
+                $(this).css('font-weight', '700');
+            }, function() {
+                $(this).css('font-weight', '400');
+            });
+            $('.accordion-content').on('click', function() {
+                $(this).css('border-bottom', 'solid thin hsl(240, 5%, 91%)');
+            }, function() {
+                $(this).css('border-bottom', 'solid thin hsl(240, 5%, 91%)')
+            });
+        });
+    </script>
+
+    <script>
+        var acc = document.querySelectorAll('.accordion-header');
+
+        for (var i = 0; i < acc.length; i++) {
+            acc[i].addEventListener('click', function() {
+
+                var content = this.nextElementSibling;
+                content.classList.toggle('active');
+
+                if (content.style.display == 'block' || this.querySelector('.rotate').style.transform ===
+                    "rotate(180deg)") {
+                    content.style.display = 'none';
+                    this.querySelector('.rotate').style.transform = "rotate(0)";
+                } else {
+                    content.style.display = 'block';
+                    this.querySelector('.rotate').style.transform = "rotate(180deg)";
+                }
+            })
+        }
+    </script>
+
+</body>
+
+</html>
